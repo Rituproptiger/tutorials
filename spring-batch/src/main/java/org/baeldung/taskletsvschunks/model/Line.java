@@ -9,6 +9,7 @@ public class Line implements Serializable {
     private String name;
     private LocalDate dob;
     private Long age;
+    private String status;
 
     public Line(String name, LocalDate dob) {
         this.name = name;
@@ -39,7 +40,15 @@ public class Line implements Serializable {
         this.age = age;
     }
 
-    public String toString() {
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         sb.append(this.name);
@@ -49,6 +58,11 @@ public class Line implements Serializable {
             sb.append(",");
             sb.append(this.age);
         }
+        if (this.status != null) {
+            sb.append(",");
+            sb.append(this.status);
+        }
+        
         sb.append("]");
         return sb.toString();
     }
